@@ -149,3 +149,40 @@ Create a GitHub Actions workflow that runs mypy on every push and pull request.
 uv run mypy .
 ```
 
+## Configure Linting
+
+This project uses **Ruff** to perform fast, comprehensive linting and enforce a consistent code quality standard across all libraries.
+
+### 1. Install Ruff
+
+Install Ruff as a development dependency for each library:
+
+```bash
+cd libs/adamant-armadillo-core
+uv add --dev ruff
+
+cd ../adamant-armadillo-domain
+uv add --dev ruff
+```
+
+### 2. Configure Ruff
+
+Configure Ruff by adding a `[tool.ruff]` section to each library's `pyproject.toml` (or to the workspace root if using a shared configuration). Define the linting rules, enabled checks, exclusions, and any project-specific settings.
+
+### 3. Configure the IDE
+
+Configure PyCharm to use **Ruff** for code inspections and linting. This provides immediate feedback while developing and helps ensure code adheres to the project's linting rules.
+
+### 4. Add a Pre-commit Hook
+
+Configure a Git pre-commit hook to run Ruff before commits are created, preventing linting issues from being committed.
+
+### 5. Add Continuous Integration Checks
+
+Create a GitHub Actions workflow that runs Ruff on every push and pull request.
+
+Verify the project passes all linting checks by running:
+
+```bash
+uv tool run ruff check .
+```
