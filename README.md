@@ -76,3 +76,39 @@ adamant-armadillo/
 ├── pyproject.toml
 └── README.md
 ```
+
+## Configure Code Formatting
+
+This project uses **Black** to ensure consistent code formatting across all libraries.
+
+### 1. Install Black
+
+Install Black as a development dependency for each library:
+
+```bash
+cd libs/adamant-armadillo-core
+uv add --dev black
+
+cd ../adamant-armadillo-domain
+uv add --dev black
+```
+
+### 2. Configure Black
+
+Add a `[tool.black]` section to each library's `pyproject.toml` (or to the workspace root if you prefer a shared configuration).
+
+### 3. Configure the IDE
+
+Configure PyCharm to use **Black** as the project's formatter. This ensures that code formatted from within the IDE is consistent with the project's formatting rules.
+
+### 4. Add a Pre-commit Hook
+
+Configure a Git pre-commit hook to automatically verify that all Python code is properly formatted before commits are created.
+
+### 5. Add Continuous Integration Checks
+
+Create a GitHub Actions workflow that runs Black in check mode on every pull request and push.
+
+```bash
+uv tool run black --check --verbose */**/src */**/test
+```

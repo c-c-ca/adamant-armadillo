@@ -11,3 +11,7 @@ members = [
     "libs/adamant-armadillo-core",
     "libs/adamant-armadillo-domain",
 ]
+
+[tool.black]
+line-length = 120
+target-version = ["py314"]
