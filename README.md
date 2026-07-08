@@ -186,3 +186,49 @@ Verify the project passes all linting checks by running:
 ```bash
 uv tool run ruff check .
 ```
+
+## Configure Testing
+
+This project uses **pytest** for unit testing and **pytest-cov** to measure code coverage. Together, these tools help ensure the project's functionality is thoroughly tested and that new code maintains a high level of test coverage.
+
+### 1. Install Testing Dependencies
+
+Install the testing dependencies for each library:
+
+```bash
+cd libs/adamant-armadillo-core
+uv add --dev pytest
+uv add --dev pytest-cov
+
+cd ../adamant-armadillo-domain
+uv add --dev pytest
+uv add --dev pytest-cov
+```
+
+### 2. Configure pytest
+
+Configure pytest by adding a `[tool.pytest.ini_options]` section to each library's `pyproject.toml` (or to the workspace root if using a shared configuration). Define options such as test discovery paths, verbosity, and any project-specific settings.
+
+### 3. Configure Coverage Reporting
+
+Configure `pytest-cov` to measure code coverage and generate reports. Define the coverage targets and reporting options appropriate for the project.
+
+### 4. Configure the IDE
+
+Configure PyCharm to use **pytest** as the project's test runner. This allows tests to be executed and debugged directly from the IDE.
+
+### 5. Add Continuous Integration Checks
+
+Create a GitHub Actions workflow that executes the test suite and verifies code coverage on every push and pull request.
+
+Run the test suite locally:
+
+```bash
+uv run pytest
+```
+
+Run the test suite with coverage reporting:
+
+```bash
+uv run pytest --cov=. --cov-report=term-missing
+```

@@ -100,3 +100,25 @@ known-first-party = [
     "adamant_armadillo_core",
     "adamant_armadillo_domain",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--cov"
+strict_markers = true
+strict_xfail = true
+testpaths = [
+    "libs/adamant-armadillo-core/test",
+    "libs/adamant-armadillo-domain/test",
+]
+
+[tool.coverage.run]
+branch = true
+source = [
+    "libs/adamant-armadillo-core/src/adamant_armadillo_core",
+    "libs/adamant-armadillo-domain/src/adamant_armadillo_domain",
+]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+skip_empty = true
