@@ -5,3 +5,10 @@ repos:
       - id: black
         language_version: python3.14
         args: ['--config=pyproject.toml']
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v2.1.0
+    hooks:
+    -   id: mypy
+        language_version: python3.14
+        pass_filenames: false
+        args: ['--ignore-missing-imports', '--config-file=pyproject.toml']

@@ -112,3 +112,40 @@ Create a GitHub Actions workflow that runs Black in check mode on every pull req
 ```bash
 uv tool run black --check --verbose */**/src */**/test
 ```
+
+## Configure Static Type Checking
+
+This project uses **mypy** to perform static type checking and catch type-related issues before runtime.
+
+### 1. Install mypy
+
+Install mypy as a development dependency for each library:
+
+```bash
+cd libs/adamant-armadillo-core
+uv add --dev mypy
+
+cd ../adamant-armadillo-domain
+uv add --dev mypy
+```
+
+### 2. Configure mypy
+
+Configure mypy by adding a `[tool.mypy]` section to each library's `pyproject.toml` (or to the workspace root if using a shared configuration).
+
+### 3. Configure the IDE
+
+Configure PyCharm to use **mypy** for on-demand or automatic type checking. This helps identify type errors during development and ensures consistency with the project's type checking rules.
+
+### 4. Add a Pre-commit Hook
+
+Configure a Git pre-commit hook to run mypy before commits are created, preventing type errors from being committed.
+
+### 5. Add Continuous Integration Checks
+
+Create a GitHub Actions workflow that runs mypy on every push and pull request.
+
+```bash
+uv run mypy .
+```
+
