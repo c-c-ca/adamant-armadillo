@@ -6,4 +6,7 @@
     <option name="pathToExecutable" value="$USER_HOME$/.local/bin/black" />
     <option name="sdkName" value="uv (adamant-armadillo)" />
   </component>
+  <component name="RuffConfiguration">
+    <option name="enabled" value="true" />
+  </component>
 </project>
