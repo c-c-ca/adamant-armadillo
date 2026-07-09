@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/adamant-armadillo.iml" filepath="$PROJECT_DIR$/.idea/adamant-armadillo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/adamant-armadillo-core.iml" filepath="$PROJECT_DIR$/.idea/adamant-armadillo-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/adamant-armadillo-domain.iml" filepath="$PROJECT_DIR$/.idea/adamant-armadillo-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/adamant-armadillo@1.iml" filepath="$PROJECT_DIR$/.idea/adamant-armadillo@1.iml" />
     </modules>
   </component>
 </project>
