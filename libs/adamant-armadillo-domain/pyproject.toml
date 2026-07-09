@@ -23,6 +23,9 @@ dev = [
     "pytest-cov>=7.1.0",
     "ruff>=0.15.20",
 ]
+docs = [
+    "sphinx>=9.1.0",
+]
 
 [tool.uv.sources]
 adamant-armadillo-core = { workspace = true }

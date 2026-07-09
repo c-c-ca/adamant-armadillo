@@ -232,3 +232,204 @@ Run the test suite with coverage reporting:
 ```bash
 uv run pytest --cov=. --cov-report=term-missing
 ```
+
+## Configure Documentation
+
+This project uses **Sphinx** to generate API and project documentation. Each library maintains its own documentation, while the root project aggregates the documentation into a single site using **sphinx-collections**.
+
+### 1. Install Sphinx
+
+Install Sphinx for the root project:
+
+```bash
+uv add --group docs sphinx
+```
+
+Initialize the documentation project:
+
+```bash
+sphinx-quickstart docs
+```
+
+Verify that the documentation builds successfully:
+
+```bash
+sphinx-build -M html docs/ docs/_build/
+```
+
+---
+
+## Configure Documentation for the Core Library
+
+Navigate to the core library:
+
+```bash
+cd libs/adamant-armadillo-core
+```
+
+Install Sphinx:
+
+```bash
+uv add --group docs sphinx
+```
+
+Initialize the documentation project:
+
+```bash
+sphinx-quickstart docs
+```
+
+### Enable Automatic API Documentation
+
+Update `docs/conf.py` to enable the `autodoc` extension:
+
+```python
+extensions = [
+    "sphinx.ext.autodoc",
+]
+```
+
+Generate the API reference:
+
+```bash
+sphinx-apidoc -o docs/reference/ src/adamant_armadillo_core/
+```
+
+Update `docs/index.rst`:
+
+```rst
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   reference/modules
+```
+
+Verify the documentation builds successfully:
+
+```bash
+sphinx-build -M html docs/ docs/_build/
+```
+
+---
+
+## Configure Documentation for the Domain Library
+
+Navigate to the domain library:
+
+```bash
+cd ../adamant-armadillo-domain
+```
+
+Install Sphinx:
+
+```bash
+uv add --group docs sphinx
+```
+
+Initialize the documentation project:
+
+```bash
+sphinx-quickstart docs
+```
+
+### Enable Automatic API Documentation
+
+Update `docs/conf.py`:
+
+```python
+extensions = [
+    "sphinx.ext.autodoc",
+]
+```
+
+Generate the API reference:
+
+```bash
+sphinx-apidoc -o docs/reference/ src/adamant_armadillo_domain/
+```
+
+Update `docs/index.rst`:
+
+```rst
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   reference/modules
+```
+
+Verify the documentation builds successfully:
+
+```bash
+sphinx-build -M html docs/ docs/_build/
+```
+
+---
+
+## Aggregate Documentation
+
+Return to the workspace root:
+
+```bash
+cd ../..
+```
+
+Install **sphinx-collections**:
+
+```bash
+uv add --group docs sphinx-collections
+```
+
+Update the root `docs/conf.py`:
+
+```python
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx_collections",
+]
+
+collections = {
+    "adamant_armadillo_core": {
+        "driver": "symlink",
+        "source": "../libs/adamant-armadillo-core/docs/",
+    },
+    "adamant_armadillo_domain": {
+        "driver": "symlink",
+        "source": "../libs/adamant-armadillo-domain/docs/",
+    },
+}
+```
+
+Update the root `docs/index.rst`:
+
+```rst
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   _collections/adamant_armadillo_core/index
+   _collections/adamant_armadillo_domain/index
+```
+
+Build the aggregated documentation:
+
+```bash
+sphinx-build -M html docs/ docs/_build/
+```
+
+---
+
+## Preview the Documentation
+
+Start a local web server from the workspace root:
+
+```bash
+py -m http.server -d docs/_build/html 9876
+```
+
+Open the documentation in your browser:
+
+```text
+http://localhost:9876
+```
