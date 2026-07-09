@@ -44,8 +44,8 @@ if os.environ.get("READTHEDOCS") == "True":
     from pathlib import Path
 
     PROJECT_ROOT = Path(__file__).parent.parent
-    CORE_LIB_ROOT = PROJECT_ROOT / "lib" / "adamant-armadillo-core" / "src" / "adamant_armadillo_core"
-    DOMAIN_LIB_ROOT = PROJECT_ROOT / "lib" / "adamant-armadillo-domain" / "src" / "adamant_armadillo_domain"
+    CORE_LIB_ROOT = PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "src" / "adamant_armadillo_core"
+    DOMAIN_LIB_ROOT = PROJECT_ROOT / "libs" / "adamant-armadillo-domain" / "src" / "adamant_armadillo_domain"
 
     def run_apidoc(_):
         from sphinx.ext import apidoc
