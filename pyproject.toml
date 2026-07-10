@@ -113,8 +113,8 @@ testpaths = [
 [tool.coverage.run]
 branch = true
 source = [
-    "libs/adamant-armadillo-core/src/adamant_armadillo_core",
-    "libs/adamant-armadillo-domain/src/adamant_armadillo_domain",
+    "libs/adamant-armadillo-core/docs",
+    "libs/adamant-armadillo-domain/docs",
 ]
 
 [tool.coverage.report]
