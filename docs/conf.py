@@ -37,10 +37,10 @@ if os.environ.get("READTHEDOCS") == "True":
 
     multiproject_projects = {
         "adamant_armadillo_core": {
-            "path": PROJECT_ROOT / ".." / "libs" / "adamant-armadillo-core" / "docs",
+            "path": PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "docs",
         },
         "adamant_armadillo_domain": {
-            "path": PROJECT_ROOT / ".." / "libs" / "adamant-armadillo-domain" / "docs",
+            "path": PROJECT_ROOT / "libs" / "adamant-armadillo-domain" / "docs",
         },
     }
 
