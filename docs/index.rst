@@ -10,4 +10,9 @@ adamant-armadillo documentation
    :maxdepth: 2
    :caption: Contents:
 
-   - :ref:`adamant-armadillo-core:ref-role`
+Welcome to the Adamant Armadillo documentation.
+
+Libraries
+----------
+
+* :doc:`adamant-armadillo-core:index`
