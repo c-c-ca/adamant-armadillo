@@ -41,6 +41,8 @@ if os.environ.get("READTHEDOCS") == "True":
             "--implicit-namespaces",
             "--module-first",
             "--separate",
+            "--preview-features",
+            "project-directory-must-exist",
             "-o",
             str(PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "docs" / "reference"),
             str(PACKAGE_ROOT),
