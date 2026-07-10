@@ -42,7 +42,7 @@ if os.environ.get("READTHEDOCS") == "True":
             "--module-first",
             "--separate",
             "-o",
-            str(PROJECT_ROOT / "docs" / "reference"),
+            str(PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "docs" / "reference"),
             str(PACKAGE_ROOT),
         ])
 
