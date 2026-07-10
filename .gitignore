@@ -18,10 +18,8 @@ docs/_static/
 docs/reference/
 docs/_templates/
 docs/make.bat
-docs/Makefile
 libs/**/docs/_build/
 libs/**/docs/_static/
 libs/**/docs/reference/
 libs/**/docs/_templates/
 libs/**/docs/make.bat
-libs/**/docs/Makefile
