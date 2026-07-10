@@ -31,10 +31,10 @@ html_static_path = ["_static"]
 
 multiproject_projects = {
     "adamant_armadillo_core": {
-        "path": "../libs/adamant-armadillo-core/src/adamant_armadillo_core/docs",
+        "path": "../libs/adamant-armadillo-core/docs",
     },
     "adamant_armadillo_domain": {
-        "path": "../libs/adamant-armadillo-domain/src/adamant_armadillo_domain/docs",
+        "path": "../libs/adamant-armadillo-domain/docs",
     },
 }
 
