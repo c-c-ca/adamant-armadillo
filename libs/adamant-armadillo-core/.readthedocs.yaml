@@ -13,7 +13,6 @@ build:
 python:
   install:
     - method: uv
-      path: .
       command: sync
       groups:
         - docs
