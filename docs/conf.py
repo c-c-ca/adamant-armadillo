@@ -2,8 +2,7 @@
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-from pathlib import Path
-from multiproject.utils import get_project
+import os
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -30,24 +29,28 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "alabaster"
 html_static_path = ["_static"]
 
-ROOT = Path(__file__).resolve().parent
+if os.environ.get("READTHEDOCS") == "True":
+    from pathlib import Path
+    from multiproject.utils import get_project
 
-multiproject_projects = {
-    "adamant_armadillo_core": {
-        "path": ROOT / "../libs/adamant-armadillo-core/docs",
-    },
-    "adamant_armadillo_domain": {
-        "path": ROOT / "../libs/adamant-armadillo-domain/docs",
-    },
-}
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-current_project = get_project(multiproject_projects)
+    multiproject_projects = {
+        "adamant_armadillo_core": {
+            "path": PROJECT_ROOT / ".." / "libs" / "adamant-armadillo-core" / "docs",
+        },
+        "adamant_armadillo_domain": {
+            "path": PROJECT_ROOT / ".." / "libs" / "adamant-armadillo-domain" / "docs",
+        },
+    }
 
-if current_project == "adamant_armadillo_core":
-    language = "en"
-    extensions += ["sphinx.ext.autodoc"]
-    project = "Core Library Documentation"
-elif current_project == "adamant_armadillo_domain":
-    language = "en"
-    extensions += ["sphinx.ext.autodoc"]
-    project = "Domain Library documentation"
+    current_project = get_project(multiproject_projects)
+
+    if current_project == "adamant_armadillo_core":
+        language = "en"
+        extensions += ["sphinx.ext.autodoc"]
+        project = "Core Library Documentation"
+    elif current_project == "adamant_armadillo_domain":
+        language = "en"
+        extensions += ["sphinx.ext.autodoc"]
+        project = "Domain Library documentation"
