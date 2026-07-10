@@ -126,5 +126,4 @@ skip_empty = true
 [dependency-groups]
 docs = [
     "sphinx>=9.1.0",
-    "sphinx-multiproject>=1.0.0",
 ]
