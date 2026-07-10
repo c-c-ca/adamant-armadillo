@@ -15,8 +15,8 @@ author = "Adam Carter"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+    "multiproject",
     "sphinx.ext.autodoc",
-    "sphinx_collections",
 ]
 
 templates_path = ["_templates"]
@@ -29,14 +29,12 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "alabaster"
 html_static_path = ["_static"]
 
-collections = {
+multiproject_projects = {
     "adamant_armadillo_core": {
-        "driver": "symlink",
-        "source": "../libs/adamant-armadillo-core/docs/",
+        "path": "libs/adamant-armadillo-core/src/adamant_armadillo_core/docs",
     },
     "adamant_armadillo_domain": {
-        "driver": "symlink",
-        "source": "../libs/adamant-armadillo-domain/docs/",
+        "path": "libs/adamant-armadillo-domain/src/adamant_armadillo_domain/docs",
     },
 }
 
