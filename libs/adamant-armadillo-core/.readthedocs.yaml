@@ -13,7 +13,6 @@ build:
 python:
   install:
     - method: uv
-      path: ./libs/adamant-armadillo-core/src
       command: sync
       groups:
         - docs
