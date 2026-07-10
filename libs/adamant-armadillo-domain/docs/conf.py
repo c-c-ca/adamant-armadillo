@@ -28,24 +28,3 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "alabaster"
 html_static_path = ["_static"]
 
-
-if os.environ.get("READTHEDOCS") == "True":
-    from pathlib import Path
-
-    PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
-    PACKAGE_ROOT = PROJECT_ROOT / "libs" / "adamant-armadillo-domain" / "src" / "adamant_armadillo_domain"
-
-    def run_apidoc(_):
-        from sphinx.ext import apidoc
-        apidoc.main([
-            "--force",
-            "--implicit-namespaces",
-            "--module-first",
-            "--separate",
-            "-o",
-            str(PROJECT_ROOT / "docs" / "reference"),
-            str(PACKAGE_ROOT),
-        ])
-
-    def setup(app):
-        app.connect("builder-inited", run_apidoc)
