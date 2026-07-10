@@ -10,6 +10,3 @@ adamant-armadillo documentation
    :maxdepth: 2
    :caption: Contents:
 
-   _collections/adamant_armadillo_core/index
-   _collections/adamant_armadillo_domain/index
-
