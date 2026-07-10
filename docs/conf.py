@@ -32,11 +32,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 multiproject_projects = {
     "adamant_armadillo_core": {
-        "path": PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "docs",
+        "path": str(PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "docs"),
         "use_config_file": True,
     },
     "adamant_armadillo_domain": {
-        "path": PROJECT_ROOT / "libs" / "adamant-armadillo-domain"/ "docs",
+        "path": str(PROJECT_ROOT / "libs" / "adamant-armadillo-domain"/ "docs"),
         "use_config_file": True,
     },
 }
