@@ -13,7 +13,9 @@ author = "Adam Carter"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    "sphinx.ext.intersphinx",
+]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -24,3 +26,9 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "alabaster"
 html_static_path = ["_static"]
+
+intersphinx_mapping = {
+    "adamant-armadillo-core": ("https://adamant-armadillo.readthedocs.io/projects/adamant-armadillo-core/en/latest/", None),
+}
+
+intersphinx_disabled_reftypes = ["*"]
