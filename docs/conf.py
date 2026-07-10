@@ -2,6 +2,7 @@
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+from pathlib import Path
 from multiproject.utils import get_project
 
 # -- Project information -----------------------------------------------------
@@ -29,12 +30,14 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "alabaster"
 html_static_path = ["_static"]
 
+ROOT = Path(__file__).resolve().parent
+
 multiproject_projects = {
     "adamant_armadillo_core": {
-        "path": "../libs/adamant-armadillo-core/docs",
+        "path": ROOT / "../libs/adamant-armadillo-core/docs",
     },
     "adamant_armadillo_domain": {
-        "path": "../libs/adamant-armadillo-domain/docs",
+        "path": ROOT / "../libs/adamant-armadillo-domain/docs",
     },
 }
 
