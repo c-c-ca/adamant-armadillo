@@ -10,3 +10,7 @@ adamant-armadillo documentation
    :maxdepth: 2
    :caption: Contents:
 
+   - :ref:`sphinx:ref-role`
+   - :ref:`:ref: role <sphinx:ref-role>`
+   - :doc:`sphinx:usage/extensions/intersphinx`
+   - :doc:`Intersphinx <sphinx:usage/extensions/intersphinx>`
