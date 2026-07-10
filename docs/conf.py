@@ -28,7 +28,14 @@ html_theme = "alabaster"
 html_static_path = ["_static"]
 
 intersphinx_mapping = {
-    "adamant-armadillo-core": ("https://adamant-armadillo.readthedocs.io/projects/adamant-armadillo-core/en/latest/", None),
+    "adamant-armadillo": (
+        "https://adamant-armadillo.readthedocs.io/en/latest/",
+        None,
+    ),
+    "adamant-armadillo-core": (
+        "https://adamant-armadillo.readthedocs.io/projects/adamant-armadillo-core/en/latest/",
+        None,
+    ),
 }
 
 intersphinx_disabled_reftypes = ["*"]

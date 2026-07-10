@@ -16,6 +16,7 @@ author = "Adam Carter"
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
 ]
 
 templates_path = ["_templates"]
@@ -27,6 +28,19 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "alabaster"
 html_static_path = ["_static"]
+
+intersphinx_mapping = {
+    "adamant-armadillo": (
+        "https://adamant-armadillo.readthedocs.io/en/latest/",
+        None,
+    ),
+    "adamant-armadillo-core": (
+        "https://adamant-armadillo.readthedocs.io/projects/adamant-armadillo-core/en/latest/",
+        None,
+    ),
+}
+
+intersphinx_disabled_reftypes = ["*"]
 
 if os.environ.get("READTHEDOCS") == "True":
     from pathlib import Path
