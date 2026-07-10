@@ -54,3 +54,20 @@ if os.environ.get("READTHEDOCS") == "True":
         language = "en"
         extensions += ["sphinx.ext.autodoc"]
         project = "Domain Library documentation"
+
+    PACKAGE_ROOT = PROJECT_ROOT / "src" / current_project
+
+    def run_apidoc(_):
+        from sphinx.ext import apidoc
+        apidoc.main([
+            "--force",
+            "--implicit-namespaces",
+            "--module-first",
+            "--separate",
+            "-o",
+            str(PROJECT_ROOT / "docs" / "reference"),
+            str(PACKAGE_ROOT),
+        ])
+
+    def setup(app):
+        app.connect('builder-inited', run_apidoc)
