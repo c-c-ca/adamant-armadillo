@@ -31,8 +31,8 @@ html_static_path = ["_static"]
 if os.environ.get("READTHEDOCS") == "True":
     from pathlib import Path
 
-    PROJECT_ROOT = Path(__file__).parent.parent
-    PACKAGE_ROOT = PROJECT_ROOT / "src" / "adamant_armadillo_core"
+    PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+    PACKAGE_ROOT = PROJECT_ROOT / "libs" / "adamant-armadillo-core" / "src" / "adamant_armadillo_core"
 
     def run_apidoc(_):
         from sphinx.ext import apidoc
